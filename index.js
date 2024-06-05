@@ -7,7 +7,7 @@ const app = express();
 const port = 5000;
 
 app.get('/', (req, res) => {
-  res.send("Hola mundo")
+  res.send("Hello World")
 });
 
 const readData = async () => {
@@ -15,27 +15,27 @@ const readData = async () => {
     const data = await fs.readFile(path.join(__dirname, './db.json'), 'utf-8');
     return JSON.parse(data);
   } catch (error) {
-    console.error('Error para leer el JSON:', error);
-    return { usuario: [] };
+    console.error('Error to read file:', error);
+    return { movies: [] };
   }
 };
 
-app.get('/pelis', async (req, res) => {
-  const peliculas = await readData();
-  res.json(peliculas.peliculas);
+app.get('/movies', async (req, res) => {
+  const movies = await readData();
+  res.json(movies.movies);
 });
 
-app.get('/pelis/:id', async (req, res) => {
+app.get('/movies/:id', async (req, res) => {
   const data = await readData();
   const id = parseInt(req.params.id);
-  const peli = data.usuario.find((peli) => peli.id === id);
-  if (peli) {
-    res.json(peli);
+  const movie = data.movies.find((movie) => movie.id === id);
+  if (movie) {
+    res.json(movie);
   } else {
-    res.status(404).json({ message: 'Pelicula no encontrada' });
+    res.status(404).json({ message: 'Movie not find' });
   }
 });
 
 app.listen(port, () => {
-    console.log(`Servidor escuchando en el puerto ${port}...`);
+    console.log(`Server listen in ${port}...`);
   });

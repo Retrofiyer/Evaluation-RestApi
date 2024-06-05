@@ -1,9 +1,29 @@
 {
-    "peliculas":[
+    "movies":[
         {
             "id": 1,
             "MovieName": "Scary Movie",
             "Year": "2005" 
+        },
+        {
+            "id": 2,
+            "MovieName": "Wonka",
+            "Year": "2023" 
+        },
+        {
+            "id": 3,
+            "MovieName": "Elemental",
+            "Year": "2023" 
+        },
+        {
+            "id": 4,
+            "MovieName": "Aquaman y el Reino Perdido",
+            "Year": "2023" 
+        },
+        {
+            "id": 5,
+            "MovieName": "Madame Web",
+            "Year": "2024" 
         }
     ]
 }
